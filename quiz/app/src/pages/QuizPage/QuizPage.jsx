@@ -17,6 +17,14 @@ export default function QuizPage() {
         if (currentQuestionData.correctAnswerIndex === selectedOption) {
             setTotalCorrect(totalCorrect + 1);
         }
+
+        else {
+            // Save the question that was answered incorrectly to local storage
+            let incorrectQuestions = JSON.parse(localStorage.getItem('incorrectQuestions')) || [];
+            incorrectQuestions.push(currentQuestionData);
+
+            localStorage.setItem('incorrectQuestions', JSON.stringify(incorrectQuestions));
+        }
         setSelectedAnswer(selectedOption);
         setAnswered(true);
 

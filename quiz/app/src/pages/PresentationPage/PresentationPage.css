@@ -1,0 +1,23 @@
+.presentation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /*padding: 5em 2em;*/
+}
+
+.presentation-link {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 1em 2em;
+    background-color: var(--red);
+    margin: 0.5em;
+    transition: all 0.3s ease-in-out;
+}
+
+.presentation-link:hover {
+    background-color: var(--green);
+    color: var(--blue);
+}

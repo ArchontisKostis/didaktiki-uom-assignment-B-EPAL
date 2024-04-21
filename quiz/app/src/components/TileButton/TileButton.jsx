@@ -7,8 +7,8 @@ export default function TileButton({title, icon, color, onClick}) {
             onClick={onClick}
             style={{backgroundColor: color}}
         >
-            <i className="bi bi-patch-question"></i>
-            <span> {title}</span>
+            <i className={icon}></i>
+            <span>{title}</span>
         </button>
     )
 }

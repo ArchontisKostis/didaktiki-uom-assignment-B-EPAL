@@ -1,0 +1,64 @@
+.wrong-questions-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.wrong-questions-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.wrong-questions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.wrong-question {
+    width: 50%;
+    padding: 1em 2em;
+    background-color: var(--green);
+    border-radius: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrong-question h3 {
+    color: var(--blue);
+}
+
+.wrong-question p {
+    color: var(--red);
+}
+
+.delete-history-button {
+    background-color: var(--red);
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.1em;
+}
+
+.delete-history-button:hover {
+    background-color: var(--green);
+    color: var(--red);
+}
+
+.no-wrong-questions {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.no-wrong-questions h3 {
+    color: var(--red);
+}

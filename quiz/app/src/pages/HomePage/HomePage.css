@@ -25,3 +25,11 @@
     color: var(--red);
     margin: 0;
 }
+
+.home-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}

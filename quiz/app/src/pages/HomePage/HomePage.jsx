@@ -12,11 +12,26 @@ export default function HomePage() {
             <section className="home-content">
                 <TileButton
                     title="Quiz"
-                    icon="/algorithm.svg"
+                    icon="bi bi-patch-question"
                     color="var(--red)"
                     onClick={() => window.location.href = "/quiz"}
                 />
+
+                <TileButton
+                    title="Λάθος Απαντήσεις"
+                    icon="bi bi-x-octagon"
+                    color="var(--green)"
+                    onClick={() => window.location.href = "/wrong-questions"}
+                />
+
+                <TileButton
+                    title="Online Παρουσίαση"
+                    icon="bi bi-easel2"
+                    color="white"
+                    onClick={() => window.location.href = "/presentation"}
+                />
             </section>
+
         </div>
     )
 }
