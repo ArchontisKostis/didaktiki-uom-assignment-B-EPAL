@@ -1,0 +1,26 @@
+.tile-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 12vw;
+    height: 12vw;
+    padding: 2em;
+    border:  none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 4em;
+    color: var(--blue);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tile-button:hover {
+    scale: 1.1;
+}
+
+.tile-button:active {
+    scale: 1.05;
+    opacity: 0.8;
+}

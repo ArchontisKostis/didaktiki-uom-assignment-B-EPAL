@@ -1,0 +1,34 @@
+.quiz-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 70vw;
+    gap: 2em;
+}
+
+.quiz-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 1em;
+}
+
+.quiz-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+    gap: 1em;
+    width: 100%;
+    font-size: 1.5em;
+    color: var(--green);
+}
+
+.back-button {
+    color: var(--green);
+}

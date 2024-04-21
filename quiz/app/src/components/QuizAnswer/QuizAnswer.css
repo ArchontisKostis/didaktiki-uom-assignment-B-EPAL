@@ -1,0 +1,53 @@
+.quiz-answer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    font-size: 1.2em;
+    background-color: var(--green);
+    color: var(--blue);
+    padding: 0 0.1em;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.quiz-answer:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    scale: 1.01;
+}
+
+.quiz-answer:active {
+    opacity: 0.6;
+    scale: 0.99;
+}
+
+.incorrect {
+    background-color: var(--incorrect);
+    color: white;
+}
+
+.incorrect .quiz-answer-letter {
+    background-color: white;
+    color: var(--incorrect);
+}
+
+.correct {
+    background-color: var(--correct);
+    color: white;
+}
+
+.correct .quiz-answer-letter {
+    background-color: white;
+    color: var(--correct);
+}
+
+.quiz-answer-letter {
+    font-size: 1em;
+    background-color: var(--red);
+    color: var(--blue);
+    margin: 0.1em 0;
+    padding: 0.5em;
+}
+
