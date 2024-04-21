@@ -1,1 +1,1 @@
-# didaktiki-uom-assignment-B-EPAL
+# b-epal-progarmming-kef-2-quiz
