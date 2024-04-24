@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/quiz/app/(.*)", "destination": "/$1" }
+    { "source": "quiz/app/(.*)", "destination": "/$1" }
   ],
   "builds": [
     { "src": "quiz/app/**", "use": "@vercel/static" }
