@@ -30,7 +30,6 @@ body {
 
   background-image: url("assets/svg/bg.svg");
   background-color: var(--blue);
-  /* Make the bg size cover the whole screen */
   background-size: 100vw 100vh;
   font-family: "Manrope", sans-serif;
 
