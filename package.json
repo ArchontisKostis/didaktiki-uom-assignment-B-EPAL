@@ -10,20 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-router": "^6.23.0",
     "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
-    "react": "^18.2.66",
-    "react-dom": "^18.2.22",
-    "react-router-dom": "^6.22.3",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "react": "^18.2.66",
+    "react-dom": "^18.2.22",
+    "react-router-dom": "^6.22.3",
     "vite": "^5.2.0"
   }
 }

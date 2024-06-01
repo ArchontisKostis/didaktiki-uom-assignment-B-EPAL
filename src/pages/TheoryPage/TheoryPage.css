@@ -1,0 +1,32 @@
+.theory-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    padding: 10vh;
+}
+
+.theory-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+.theory-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 95vw;
+    padding: 2rem;
+    border-radius: 0.2em;
+    background-color: #FAF9F6;
+}
+
+.theory-content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}

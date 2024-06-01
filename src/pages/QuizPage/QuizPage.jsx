@@ -4,6 +4,8 @@ import QuizHeader from "../../components/QuizHeader/QuizHeader.jsx";
 import QuizAnswer from "../../components/QuizAnswer/QuizAnswer.jsx";
 
 import questions from '../../assets/data/questions.json';
+import {Button, Modal} from "react-bootstrap";
+
 
 export default function QuizPage() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -11,6 +13,11 @@ export default function QuizPage() {
     const [totalQuestions, setTotalQuestions] = useState(questions.length);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [answered, setAnswered] = useState(false);
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleAnswerClick = (selectedOption) => {
         const currentQuestionData = questions[currentQuestion];
@@ -21,9 +28,16 @@ export default function QuizPage() {
         else {
             // Save the question that was answered incorrectly to local storage
             let incorrectQuestions = JSON.parse(localStorage.getItem('incorrectQuestions')) || [];
-            incorrectQuestions.push(currentQuestionData);
 
-            localStorage.setItem('incorrectQuestions', JSON.stringify(incorrectQuestions));
+            // Check if the current question is already in the incorrect questions list
+            const isAlreadyIncorrect = incorrectQuestions.some(
+                (question) => question.question === currentQuestionData.question
+            );
+
+            if (!isAlreadyIncorrect) {
+                incorrectQuestions.push(currentQuestionData);
+                localStorage.setItem('incorrectQuestions', JSON.stringify(incorrectQuestions));
+            }
         }
         setSelectedAnswer(selectedOption);
         setAnswered(true);
@@ -34,7 +48,7 @@ export default function QuizPage() {
             if (currentQuestion + 1 < totalQuestions) {
                 setCurrentQuestion(currentQuestion + 1);
             } else {
-                alert('Το τεστ τελείωσε! Σωστές απαντήσεις: ' + totalCorrect);
+                handleShow();
             }
             setAnswered(false);
         }, 1000);
@@ -54,6 +68,37 @@ export default function QuizPage() {
 
     return (
         <div className="quiz-page">
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        🎉 Τέλος του Quiz! 🎉
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Μπράβο! Ολοκλήρωσες το Quiz με επιτυχία! <br/>
+                    Πέτυχες {totalCorrect} στις {totalQuestions} ερωτήσεις. <br/> <br/>
+                    Μπορείς να δεις τις λάθος απαντήσεις σου <a href="/wrong-questions">εδώ</a>. <br/> <br/>
+
+                    Θέλεις να ξαναπαίξεις;
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={() => {
+                        setCurrentQuestion(0);
+                        setTotalCorrect(0);
+                        handleClose();
+                    }}>
+                        <i className="bi bi-arrow-repeat"> </i> Ναι
+                    </Button>
+
+                    <Button variant="secondary" onClick={() => {
+                        window.location.href = "/";
+                    }}>
+                        <i className="bi bi-house"> </i>
+                        Όχι
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <QuizHeader
                 currentQuestionNum={currentQuestion + 1}
                 totalQuestions={totalQuestions}

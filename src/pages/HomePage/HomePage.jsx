@@ -30,6 +30,13 @@ export default function HomePage() {
                     color="white"
                     onClick={() => window.location.href = "/presentation"}
                 />
+
+                <TileButton
+                    title="Θεωρία"
+                    icon="bi bi-book"
+                    color="var(--red)"
+                    onClick={() => window.location.href = "/theory"}
+                />
             </section>
 
         </div>
