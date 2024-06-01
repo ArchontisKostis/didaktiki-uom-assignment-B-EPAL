@@ -9,10 +9,18 @@ export default function TheoryPage() {
 
     return (
         <div className="theory-page">
-            <h1>
-                ΑΠΟ ΤΟΝ ΑΛΓΟΡΙΘΜΟ <br/>
-                <strong style={{color: "var(--red)"}}>ΣΤΗΝ ΑΝΑΠΤΥΞΗ ΠΡΟΓΡΑΜΜΑΤΟΣ</strong>
-            </h1>
+            <div style={{
+                display: "flex",
+                width: "100%",
+            }}>
+                <a href="/" className="home-btn">
+                    <i style={{fontSize: "10vh", alignSelf: "flex-start", color: "var(--green)"}} className="bi bi-house-door"></i>
+                </a>
+                <h1 style={{textAlign: "center", width: "100%"}}>
+                    ΑΠΟ ΤΟΝ ΑΛΓΟΡΙΘΜΟ <br/>
+                    <strong style={{color: "var(--red)"}}>ΣΤΗΝ ΑΝΑΠΤΥΞΗ ΠΡΟΓΡΑΜΜΑΤΟΣ</strong>
+                </h1>
+            </div>
 
             <section className="theory-content">
 

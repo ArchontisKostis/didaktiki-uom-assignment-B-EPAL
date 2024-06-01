@@ -1,4 +1,5 @@
 import './WrongQuestionsPage.css'
+import React from "react";
 
 export default function WrongQuestionsPage() {
     const incorrectQuestions = JSON.parse(localStorage.getItem('incorrectQuestions')) || [];
@@ -19,7 +20,19 @@ export default function WrongQuestionsPage() {
 
     return (
         <div className="wrong-questions-page">
-            <h1>Λάθη</h1>
+            <div style={{
+                display: "flex",
+                width: "80%",
+            }}>
+                <a href="/" className="home-btn">
+                    <i style={{fontSize: "10vh", alignSelf: "flex-start", color: "var(--green)"}} className="bi bi-house-door"></i>
+                </a>
+                <h1 style={{textAlign: "center", width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    ΛΑΘΟΣ &nbsp;
+                    <strong style={{color: "var(--red)"}}>ΑΠΑΝΤΗΣΕΙΣ</strong>
+                </h1>
+            </div>
+
             {incorrectQuestions.length === 0 &&
                 <div className="no-wrong-questions">
                     <h3>Δεν υπάρχουν λάθη</h3>
@@ -50,10 +63,7 @@ export default function WrongQuestionsPage() {
                 </button>
             </div>
 
-            <a href="/" className="back-button">
-                <i className="bi bi-house-fill"></i>
-                Αρχική Σελίδα
-            </a>
+
         </div>
     )
 }

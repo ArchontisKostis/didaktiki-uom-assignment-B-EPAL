@@ -99,6 +99,16 @@ export default function QuizPage() {
                 </Modal.Footer>
             </Modal>
 
+            <div style={{
+                display: "flex",
+                width: "100%",
+            }}>
+                <a href="/" className="home-btn">
+                    <i style={{fontSize: "6vh", alignSelf: "flex-start", color: "var(--green)"}} className="bi bi-house-door"></i>
+                </a>
+
+            </div>
+
             <QuizHeader
                 currentQuestionNum={currentQuestion + 1}
                 totalQuestions={totalQuestions}
@@ -117,11 +127,6 @@ export default function QuizPage() {
                     />
                 ))}
             </div>
-
-            <a href="/" className="back-button">
-                <i className="bi bi-house-fill"></i>
-                Αρχική Σελίδα
-            </a>
         </div>
     );
 }
