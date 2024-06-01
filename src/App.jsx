@@ -1,5 +1,5 @@
 import './App.css'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {HashRouter as Router, Route, Routes} from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import QuizPage from "./pages/QuizPage/QuizPage.jsx";
 import WrongQuestionsPage from "./pages/WrongQuestionsPage/WrongQuestionsPage.jsx";
