@@ -9,11 +9,12 @@
     border:  none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.8em;
+    font-size: 1.5em;
     color: var(--blue);
     font-weight: bold;
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 .tile-button:hover {
