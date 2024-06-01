@@ -574,7 +574,7 @@ export default function TheoryPage() {
                         margin: "1em 0",
                         width: "100%"
                     }}>
-                        <Accordion defaultActiveKey="0">
+                        <Accordion>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>Ποιες είναι οι βασικές φάσεις για τη διαδικασία ανάπτυξης ενός συστήματος λογισμικού στο μοντέλο του καταρράκτη;</Accordion.Header>
                                 <Accordion.Body>
