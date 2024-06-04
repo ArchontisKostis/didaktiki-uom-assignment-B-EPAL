@@ -54,6 +54,14 @@
     color: var(--red);
 }
 
+/* Disabled Delete History */
+.delete-history-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--red);
+    color: white;
+}
+
 .no-wrong-questions {
     font-size: 1.5rem;
     color: white;

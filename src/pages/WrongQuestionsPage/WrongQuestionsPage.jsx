@@ -1,28 +1,89 @@
 import './WrongQuestionsPage.css'
 import React from "react";
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
+import Alert from "react-bootstrap/Alert";
 
 export default function WrongQuestionsPage() {
     const incorrectQuestions = JSON.parse(localStorage.getItem('incorrectQuestions')) || [];
+    
+    const [show, setShow] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const [deletingHistory, setDeletingHistory] = useState(false);
 
-    const deleteHistory = () => {
-        // Ask the user if they are sure they want to delete the history
-        const confirmDelete = window.confirm('Είστε σίγουρος ότι θέλετε να διαγράψετε το ιστορικό;');
-        if (confirmDelete) {
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const deleteHistoryConfirmed = () => {
+        setDeletingHistory(true);
+        setShowAlert(true);
+
+        // Wait 2 seconds before deleting the history
+        setTimeout(() => {
             localStorage.removeItem('incorrectQuestions');
+            setDeletingHistory(false);
+            handleClose();
             window.location.reload();
-
-            alert('Το ιστορικό διαγράφηκε')
-            return;
-        }
-
-        alert('Το ιστορικό δεν διαγράφηκε')
+        }, 2000);
     }
 
     return (
         <div className="wrong-questions-page">
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <i className="bi bi-trash"> </i>
+                        Διαγραφή Ιστορικού
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Είστε σίγουρος ότι θέλετε να διαγράψετε το ιστορικό των λάθος απαντήσεων; <br />
+                    <strong>Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</strong> <br /> 
+
+                    {deletingHistory &&
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "1vw",
+                        padding: "1vw 0"
+                    
+                    }}>
+                        <Spinner animation="border" role="status">
+
+                        </Spinner>
+                        Το ιστορικό διαγράφεται...
+                    </div>
+                    }
+
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => {
+                        handleClose();
+                    }}>
+                        <i className="bi bi-x"> </i>
+                        Όχι
+                    </Button>
+
+                    <Button variant="danger"
+                        onClick={() => {
+                            deleteHistoryConfirmed();
+                        }}
+                    >
+                        <i className="bi bi-trash"> </i>   
+                        Διαγραφή Ιστορικού
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
             <div style={{
                 display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 width: "80%",
+                marginTop: "10vh"
             }}>
                 <a href="/" className="home-btn">
                     <i style={{fontSize: "10vh", alignSelf: "flex-start", color: "var(--green)"}} className="bi bi-house-door"></i>
@@ -54,13 +115,24 @@ export default function WrongQuestionsPage() {
                     </div>
                 ))}
 
-                <button
-                    className="delete-history-button"
-                    onClick={deleteHistory}
-                >
-                    <i className="bi bi-trash"> </i>
-                    Διαγραφή Ιστορικού
-                </button>
+                
+                    <button
+                        className="delete-history-button"
+                        onClick={() => handleShow()}
+                        disabled={incorrectQuestions.length === 0}
+                    >
+                        <i className="bi bi-trash"> </i>
+                        Διαγραφή Ιστορικού
+                    </button>
+
+                    <button
+                        className="delete-history-button"
+                        onClick={() => window.location.href = '/quiz'}
+                    >
+                        <i className="bi bi-arrow-bar-right"> </i>
+                        Κάντε το Quiz!
+                    </button>
+    
             </div>
 
 
